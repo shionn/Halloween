@@ -7,13 +7,13 @@
 
 // D0 semble KO pour cet usage
 #define LED_PIN_PALETTE D5
-#define LED_LEN_PALETTE 43
+#define LED_LEN_PALETTE 1
 
 #define LED_PIN_ROOF D6
-#define LED_LEN_ROOF 70
+#define LED_LEN_ROOF 169
 
 #define LED_PIN_OTHER D7
-#define LED_LEN_OTHER 43
+#define LED_LEN_OTHER 1
 
 #define LED_MODE_THEATRE 0
 #define LED_MODE_RAINBOW 1

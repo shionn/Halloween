@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <ESP8266WiFi.h>
 
 #include <controller.h>
 #include <web.h>
@@ -20,7 +21,7 @@ void setup() {
     WiFi.disconnect();
     WiFi.mode( WIFI_STA );
     WiFi.hostname( "HalloweenD1" );
-    WiFi.begin( "Livebox-AF32", "EFE356954211D29CFDE6ECAD64" );
+    WiFi.begin( "AsusHome", "aazzeerrttyy" );
     while (WiFi.status() != WL_CONNECTED) {
         digitalWrite( LED_BUILTIN, HIGH );
         delay( 300 );

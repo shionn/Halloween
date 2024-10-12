@@ -53,7 +53,7 @@ boolean Lights::isEnable() {
 
 void Lights::displayTheatre() {
     for (int s = 0;s < NB_STRIP;s++) {
-        for (int8_t led = 0; led < strips[s].numPixels(); led++) {
+        for (uint8_t led = 0; led < strips[s].numPixels(); led++) {
             uint16_t state = (map( led, 0, strips[s].numPixels(), 0, SPEED_THEATRE ) + step) % SPEED_THEATRE;
             strips[s].setPixelColor( led, strips[s].ColorHSV( map( state, 0, SPEED_THEATRE, 0, 65535 ), 255, 255 ) );
         }
