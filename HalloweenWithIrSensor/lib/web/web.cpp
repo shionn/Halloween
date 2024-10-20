@@ -6,7 +6,11 @@ Web::Web( Controller* controller ) :server( 80 ) {
 
 void Web::init() {
     this->server.on( "/", HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->render( request ); } );
-    this->server.on( "^\\/playSound\\/(\\d+)$", HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->playSound( request ); } );
+    // this->server.on( "^\\/playSound\\/(\\d+)$", HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->playSound( request ); } );
+    // this->server.on( "/playSound/" + SOUND_HELLO_AND_WELCOME, HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->playSound( request, SOUND_HELLO_AND_WELCOME ); } );
+    // this->server.on( "/playSound/" + SOUND_THUNDERS, HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->playSound( request, SOUND_THUNDERS ); } );
+    // this->server.on( "/playSound/" + SOUND_PIKA, HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->playSound( request, SOUND_PIKA ); } );
+    // this->server.on( "/playSound/" + MUSIC_GHOSTBUSTER, HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->playSound( request, MUSIC_GHOSTBUSTER ); } );
     this->server.on( "/toggleLight", HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->toggleLight( request ); } );
     this->server.on( "/toggleSound", HTTP_GET, [&]( AsyncWebServerRequest* request ) { this->toggleSound( request ); } );
     this->server.begin();
@@ -27,17 +31,17 @@ void Web::render( AsyncWebServerRequest* request ) {
         response->println( "<a href=\"/toggleSound/\"><button>Son OFF</button></a><br>" );
     }
 
-    response->printf( "<a href=\"/playSound/%d\"><button>Hello And Welcome</button></a><br>\n", SOUND_HELLO_AND_WELCOME );
-    response->printf( "<a href=\"/playSound/%d\"><button>Thunders</button></a><br>\n", SOUND_THUNDERS );
-    response->printf( "<a href=\"/playSound/%d\"><button>Pika</button></a><br>\n", SOUND_PIKA );
-    response->printf( "<a href=\"/playSound/%d\"><button>Music Ghost Buster</button></a><br>\n", MUSIC_GHOSTBUSTER );
+    // response->printf( "<a href=\"/playSound/%d\"><button>Hello And Welcome</button></a><br>\n", SOUND_HELLO_AND_WELCOME );
+    // response->printf( "<a href=\"/playSound/%d\"><button>Thunders</button></a><br>\n", SOUND_THUNDERS );
+    // response->printf( "<a href=\"/playSound/%d\"><button>Pika</button></a><br>\n", SOUND_PIKA );
+    // response->printf( "<a href=\"/playSound/%d\"><button>Music Ghost Buster</button></a><br>\n", MUSIC_GHOSTBUSTER );
 
     response->print( "</body></html>" );
     request->send( response );
 }
 
-void Web::playSound( AsyncWebServerRequest* request ) {
-    this->controller->playSound( request->pathArg( 0 ).toInt() );
+void Web::playSound( AsyncWebServerRequest* request, uint8_t sound ) {
+    this->controller->playSound( sound );
     this->render( request );
 }
 

@@ -8,7 +8,6 @@
 
 #include <controller.h>
 
-
 class Web {
 
 private:
@@ -21,7 +20,7 @@ public:
 
 private:
     void render( AsyncWebServerRequest* request );
-    void playSound( AsyncWebServerRequest* request );
+    void playSound( AsyncWebServerRequest* request, uint8_t sound );
     void toggleLight( AsyncWebServerRequest* request );
     void toggleSound( AsyncWebServerRequest* request );
 
