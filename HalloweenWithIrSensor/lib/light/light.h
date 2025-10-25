@@ -16,11 +16,15 @@
 #define LED_PIN_OTHER D7
 #define LED_LEN_OTHER 20
 
+#define LED_PIN_OTHER2 D8
+#define LED_LEN_OTHER2 79
+
+
 #define LED_MODE_THEATRE 0
 #define LED_MODE_RAINBOW 1
 #define LED_MODE_FLASH 3
 
-#define NB_STRIP 3
+#define NB_STRIP 4
 
 #define SPEED_THEATRE 2560
 #define SPEED_RAINBOW 2560
@@ -35,7 +39,8 @@ private:
     Adafruit_NeoPixel strips[NB_STRIP] = {
             Adafruit_NeoPixel( LED_LEN_PALETTE, LED_PIN_PALETTE, NEO_GRB + NEO_KHZ800 ),
             Adafruit_NeoPixel( LED_LEN_ROOF, LED_PIN_ROOF, NEO_GRB + NEO_KHZ800 ),
-            Adafruit_NeoPixel( LED_LEN_OTHER, LED_PIN_OTHER, NEO_GRB + NEO_KHZ800 ) };
+            Adafruit_NeoPixel( LED_LEN_OTHER, LED_PIN_OTHER, NEO_GRB + NEO_KHZ800 ),
+			Adafruit_NeoPixel( LED_LEN_OTHER2, LED_PIN_OTHER2, NEO_GRB + NEO_KHZ800) };
 
 public:
     Lights();
